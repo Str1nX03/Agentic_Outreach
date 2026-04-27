@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Cold Emailing Agent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css?v=3">
+</head>
+<body class="app-page">
+    <div id="glow-cursor"></div>
+    <div class="background-mesh app-mesh"></div>
+
+    <nav class="navbar glass">
+        <div class="logo"><a href="/" style="text-decoration:none; color:inherit;">Agentic<span>Outreach</span></a></div>
+        <div class="nav-links">
+            <span class="status-indicator live">● System Online</span>
+        </div>
+    </nav>
+
+    <main class="dashboard-container reveal" style="max-width: 1600px; width: 95%; margin: 0 auto;">
+        <header class="dashboard-header">
+            <h1>Campaign <span class="text-gradient">Control Center</span></h1>
+            <p>Review, edit, and orchestrate your AI outreach pipeline.</p>
+        </header>
+
+        <div class="dashboard-grid">
+            <div class="left-col">
+                <section class="control-panel glass">
+                    <div class="controls-stack">
+                        <div class="toggle-container">
+                            <label class="switch">
+                                <input type="checkbox" id="dryRunToggle">
+                                <span class="slider round"></span>
+                            </label>
+                            <span class="toggle-label">Preview Mode (Dry Run)</span>
+                        </div>
+                        <div class="toggle-container">
+                            <label class="switch">
+                                <input type="checkbox" id="autoPilotToggle">
+                                <span class="slider round"></span>
+                            </label>
+                            <span class="toggle-label">Auto-Pilot Mode</span>
+                        </div>
+                        <button id="startBtn" class="btn primary-btn glow-effect w-100">▶ Start Campaign</button>
+                    </div>
+                    
+                    <div class="progress-section mt-4">
+                        <div class="progress-stats">
+                            <span id="progressText">Waiting...</span>
+                            <span id="percentageText">0%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div id="progressBar" class="progress-bar"></div>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid mini mt-4">
+                        <div class="metric-card">
+                            <div class="metric-label">Total</div>
+                            <div class="metric-value small" id="totalCount">-</div>
+                        </div>
+                        <div class="metric-card success">
+                            <div class="metric-label">Sent</div>
+                            <div class="metric-value small" id="successCount">-</div>
+                        </div>
+                        <div class="metric-card failed">
+                            <div class="metric-label">Failed</div>
+                            <div class="metric-value small" id="failedCount">-</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="logs-panel glass mt-4">
+                    <div class="logs-header">
+                        <h3>Logs</h3>
+                        <span class="badge">Live</span>
+                    </div>
+                    <div id="logConsole" class="log-console small">
+                        <div class="log-entry system">Ready.</div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-col">
+                <section class="editor-panel glass h-100">
+                    <div class="editor-header">
+                        <h3>Draft Review</h3>
+                        <div class="editor-actions">
+                            <button id="skipBtn" class="btn secondary-btn" disabled>Skip</button>
+                            <button id="approveBtn" class="btn primary-btn glow-effect" disabled>Approve & Send</button>
+                        </div>
+                    </div>
+                    <div class="editor-body">
+                        <div class="input-group">
+                            <label>To:</label>
+                            <input type="text" id="editRecipient" readonly placeholder="Recipient Email">
+                        </div>
+                        <div class="input-group">
+                            <label>Subject:</label>
+                            <input type="text" id="editSubject" placeholder="Email Subject">
+                        </div>
+                        <div class="input-group flex-grow">
+                            <label>Message:</label>
+                            <textarea id="editBody" placeholder="AI-generated draft will appear here..."></textarea>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/app.js?v=2"></script>
+    <script src="/static/animation.js"></script>
+</body>
+</html>
